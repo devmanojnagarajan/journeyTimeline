@@ -102,7 +102,7 @@ body {
 .container {
     position: relative;
     max-width: 1800px;
-    margin: 0 auto 0 100px;
+    margin: 0 auto;
     min-height: 100vh;
     padding: 40px 20px;
 }
