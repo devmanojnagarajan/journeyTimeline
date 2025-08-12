@@ -1,0 +1,1484 @@
+/* Mobile CSS - Vertical Timeline Layout */
+
+/* Medium screens (tablets and small laptops) - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Override desktop styles for medium screens */
+    .timeline-section {
+        left: auto !important;
+        transform: none !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 20px 0 !important;
+        margin-top: 30px !important;
+    }
+    
+    .content-area {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+    }
+    
+    .main-content {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Container adjustments for medium screens */
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        box-sizing: border-box;
+    }
+    
+    /* Hide timeline line on medium screens */
+    .timeline-line {
+        display: none;
+    }
+    
+    /* Timeline items - vertical layout */
+    .timeline-item {
+        position: static !important;
+        margin-bottom: 60px;
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100% !important;
+        max-width: 100%;
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 6px 20px rgba(0, 102, 255, 0.1);
+        border: 1px solid var(--border-color);
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+    }
+    
+    .timeline-item.major {
+        margin-bottom: 80px;
+        padding: 40px;
+    }
+    
+    /* Year label - displayed first and prominently */
+    .timeline-label {
+        position: static;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #0066ff;
+        text-align: center;
+        margin-bottom: 30px;
+        opacity: 1;
+        background: linear-gradient(135deg, #0066ff, #00d4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 4px rgba(0, 102, 255, 0.2);
+    }
+    
+    .timeline-item.major .timeline-label {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+    }
+    
+    /* Timeline dots - centered below year */
+    .timeline-dot {
+        position: static;
+        width: 12px;
+        height: 12px;
+        margin: 0 auto 25px auto;
+        transform: none;
+        background: #0066ff;
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    }
+    
+    .timeline-dot.major {
+        width: 16px;
+        height: 16px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+    }
+    
+    /* Left side boxes (timeline-box) - displayed second */
+    .timeline-box,
+    .timeline-box-small {
+        position: static !important;
+        right: auto !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 30px;
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+        border: 2px solid #0066ff;
+        background: var(--bg-color);
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.1);
+    }
+    
+    .timeline-box h4,
+    .timeline-box-small h4 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: var(--text-color);
+        text-align: center;
+    }
+    
+    .timeline-box p,
+    .timeline-box-small p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--secondary-text);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    /* Fix individual certificate buttons in timeline boxes for medium screens */
+    .timeline-box .view-certificate-btn,
+    .timeline-box-small .view-certificate-btn {
+        display: block;
+        margin: 15px auto 0 auto;
+        text-align: center;
+    }
+    
+    /* 2025 specific adjustments */
+    .timeline-item[data-year="2025"] .timeline-box-small {
+        position: static !important;
+        left: auto !important;
+        width: 100% !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    
+    /* Right side sections - displayed third */
+    .career-section,
+    .education-section,
+    .foundation-section {
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 30px;
+        padding: 30px;
+        opacity: 1 !important;
+        animation: none !important;
+        background: var(--project-bg);
+        border: 2px solid rgba(0, 102, 255, 0.2);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.1);
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+    
+    .career-section h3,
+    .education-section h3,
+    .foundation-section h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: var(--text-color);
+    }
+    
+    .career-content,
+    .education-content,
+    .foundation-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .career-item,
+    .education-item,
+    .foundation-item {
+        padding: 20px;
+        margin-bottom: 0;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    
+    /* Expanded containers - full width */
+    .expanded-container-2026,
+    .expanded-container-2024,
+    .expanded-container-2019 {
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin-top: 30px;
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+    
+    .expanded-container-2026 .expanded-content-wrapper,
+    .expanded-container-2024 .expanded-content-wrapper,
+    .expanded-container-2019 .expanded-content-wrapper {
+        width: 100%;
+        padding: 30px;
+        opacity: 1;
+        animation: none;
+        background: var(--project-bg);
+        border: 2px solid rgba(0, 102, 255, 0.2);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.1);
+    }
+    
+    .expanded-container-2026 .expanded-content-wrapper h2,
+    .expanded-container-2024 .expanded-content-wrapper h2,
+    .expanded-container-2019 .expanded-content-wrapper h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 25px;
+        color: var(--text-color);
+    }
+    
+    /* Projects grid - 2 columns for medium screens */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .projects-grid-small {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .project-item {
+        padding: 20px;
+        margin-bottom: 0;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .project-item-small {
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .project-item-small .project-title {
+        min-width: 200px;
+        max-width: 250px;
+        margin-bottom: 0;
+    }
+    
+    .project-item-small .project-brief {
+        flex: 1;
+        margin: 0;
+        margin-right: 15px;
+    }
+    
+    .project-item-small .project-links {
+        min-width: 120px;
+        justify-content: flex-end;
+    }
+    
+    /* Skills grid - 2x2 layout */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .skill-category {
+        padding: 20px;
+        text-align: center;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    
+    /* Hide connection lines on medium screens */
+    .timeline-connection-2026,
+    .timeline-connection-2025,
+    .timeline-connection-2024,
+    .timeline-connection-2019,
+    .timeline-connection-line {
+        display: none !important;
+    }
+    
+    /* Certificate buttons - center align */
+    .timeline-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .view-certificate-btn {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+    
+    .view-certificate-btn.small {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+    
+    /* Certification sections medium layout */
+    .cert-items-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .cert-item {
+        padding: 15px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .cert-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    
+    .cert-header h5 {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .cert-description {
+        font-size: 0.9rem;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    
+    /* Left-side sections for 2023, 2022, etc. */
+    .timeline-item[data-year="2023"] .certifications-section,
+    .timeline-item[data-year="2022"] .work-experience-section {
+        position: static !important;
+        right: auto !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 30px;
+        padding: 30px;
+        background: var(--project-bg);
+        border: 2px solid rgba(0, 102, 255, 0.2);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.1);
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+    
+    /* Portfolio thumbnail adjustments */
+    .portfolio-thumbnail {
+        margin: 20px auto;
+    }
+    
+    .thumbnail-placeholder {
+        width: 120px;
+        height: 150px;
+    }
+    
+    /* Typography adjustments */
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Footer adjustments */
+    .footer {
+        margin-top: 60px;
+    }
+    
+    /* Dark mode toggle - adjust position */
+    .dark-mode-toggle {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Override desktop styles completely */
+    .timeline-section {
+        left: auto !important;
+        transform: none !important;
+        position: static !important;
+    }
+    
+    .content-area {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+    }
+    
+    .main-content {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Force override any desktop absolute/fixed positioning */
+    .timeline-box,
+    .timeline-box-small,
+    .career-section,
+    .education-section,
+    .foundation-section,
+    .expanded-container-2026,
+    .expanded-container-2024,
+    .expanded-container-2019,
+    .certifications-section,
+    .work-experience-section {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Reset container for mobile */
+    .container {
+        margin: 0;
+        padding: 20px 15px;
+        max-width: 100%;
+        min-width: 320px;
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    /* Ensure body doesn't overflow */
+    body {
+        overflow-x: hidden !important;
+        min-width: 320px;
+        width: 100% !important;
+        box-sizing: border-box;
+        margin: 0 !important;
+        padding-bottom: 100px !important;
+    }
+    
+    /* Fix all absolute positioning elements */
+    * {
+        box-sizing: border-box !important;
+    }
+    
+    /* Override desktop media queries */
+    html {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Profile section adjustments */
+    .profile-info {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .profile-info .description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Contact section - single column */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 40px;
+        align-items: center;
+    }
+
+    .contact-item {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    /* Timeline section - vertical layout - force override desktop positioning */
+    .timeline-section {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin-top: 30px !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        max-width: 100% !important;
+    }
+
+    .timeline-line {
+        display: none; /* Hide the central timeline line on mobile */
+    }
+
+    /* Timeline items - vertical stacking */
+    .timeline-item {
+        position: static !important;
+        margin-bottom: 40px;
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100% !important;
+        max-width: 100%;
+        min-width: 0;
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.1);
+        border: 1px solid var(--border-color);
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+    }
+
+    /* Year label - displayed first */
+    .timeline-label {
+        position: static;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #0066ff;
+        text-align: center;
+        margin-bottom: 20px;
+        opacity: 1;
+        background: linear-gradient(135deg, #0066ff, #00d4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .timeline-item.major .timeline-label {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    /* Timeline dots - smaller and positioned at top */
+    .timeline-dot {
+        position: static;
+        width: 8px;
+        height: 8px;
+        margin: 0 auto 15px auto;
+        transform: none;
+    }
+
+    .timeline-dot.major {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Left side boxes - displayed second */
+    .timeline-box,
+    .timeline-box-small {
+        position: static !important;
+        right: auto !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-bottom: 20px;
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+        border: 2px solid #0066ff;
+        background: var(--bg-color);
+        box-sizing: border-box !important;
+    }
+
+    .timeline-box {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .timeline-box-small {
+        padding: 15px;
+        min-height: auto;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    /* 2025 specific adjustments */
+    .timeline-item[data-year="2025"] .timeline-box-small {
+        position: static;
+        left: auto;
+        width: 100%;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    /* Right side sections - displayed third */
+    .career-section,
+    .education-section,
+    .foundation-section {
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-top: 20px;
+        padding: 20px;
+        opacity: 1 !important;
+        animation: none !important;
+        background: var(--project-bg);
+        border: 1px solid rgba(0, 102, 255, 0.2);
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+
+    .career-section h3,
+    .education-section h3,
+    .foundation-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .career-content,
+    .education-content,
+    .foundation-content {
+        gap: 15px;
+    }
+
+    .career-item,
+    .education-item,
+    .foundation-item {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    /* Expanded containers - full width */
+    .expanded-container-2026,
+    .expanded-container-2024,
+    .expanded-container-2019 {
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        margin-top: 20px;
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+
+    .expanded-container-2026 .expanded-content-wrapper,
+    .expanded-container-2024 .expanded-content-wrapper,
+    .expanded-container-2019 .expanded-content-wrapper {
+        width: 100%;
+        padding: 20px;
+        opacity: 1;
+        animation: none;
+        background: var(--project-bg);
+        border: 1px solid rgba(0, 102, 255, 0.2);
+    }
+
+    .expanded-container-2026 .expanded-content-wrapper h2,
+    .expanded-container-2024 .expanded-content-wrapper h2,
+    .expanded-container-2019 .expanded-content-wrapper h2 {
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Projects grid - single column */
+    .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .projects-grid-small {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .project-item {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .project-item-small {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .project-item-small .project-title {
+        min-width: auto;
+        max-width: none;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .project-item-small .project-brief {
+        margin: 0;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .project-item-small .project-links {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* Skills grid - single column */
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .skill-category {
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Hide connection lines on mobile */
+    .timeline-connection-2026,
+    .timeline-connection-2025,
+    .timeline-connection-2024,
+    .timeline-connection-2019,
+    .timeline-connection-line {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        position: static !important;
+    }
+
+    /* Content area adjustments - force override desktop styles */
+    .content-area {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        max-width: 100% !important;
+        position: static !important;
+    }
+
+    .main-content {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Certificate buttons - center align */
+    .timeline-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .view-certificate-btn {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .view-certificate-btn.small {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    /* Certification sections mobile layout */
+    .cert-items-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cert-item {
+        padding: 12px;
+    }
+
+    .cert-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .cert-header h5 {
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+    }
+
+    .cert-description {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+
+    /* Left-side sections for 2023, 2022, etc. */
+    .timeline-item[data-year="2023"] .certifications-section,
+    .timeline-item[data-year="2022"] .work-experience-section {
+        position: static !important;
+        right: auto !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-top: 20px;
+        padding: 20px;
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+
+    /* Portfolio thumbnail adjustments */
+    .portfolio-thumbnail {
+        margin: 15px auto;
+    }
+
+    .thumbnail-placeholder {
+        width: 80px;
+        height: 100px;
+    }
+
+    /* Typography adjustments */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Footer adjustments */
+    .footer {
+        margin-top: 40px;
+    }
+
+    /* Dark mode toggle - adjust position */
+    .dark-mode-toggle {
+        top: 15px;
+        right: 15px;
+    }
+
+    .dark-mode-label {
+        width: 50px;
+        height: 25px;
+    }
+
+    .dark-mode-switch {
+        width: 20px;
+        height: 20px;
+        top: 2.5px;
+        left: 2.5px;
+    }
+
+    .dark-mode-checkbox:checked + .dark-mode-label .dark-mode-switch {
+        transform: translateX(25px);
+    }
+    
+    /* Fix any remaining absolute positioned elements */
+    [style*="position: absolute"],
+    [style*="position: fixed"] {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+    }
+    
+    /* Ensure timeline section doesn't cause issues */
+    .timeline-section {
+        overflow: visible !important;
+        height: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Fix main content positioning */
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: static !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        left: auto !important;
+        right: auto !important;
+    }
+    
+    /* Override any desktop positioning that might interfere */
+    .container {
+        margin: 0 !important;
+        padding: 20px 15px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        left: auto !important;
+        right: auto !important;
+        position: static !important;
+    }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 10px;
+        margin: 0 auto;
+        max-width: 100%;
+        min-width: 280px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Force all elements to fit within viewport */
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* Profile section - extra centering */
+    .profile-section {
+        padding: 40px 0 30px 0;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .profile-pic img {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+
+    .profile-info {
+        max-width: 95%;
+        margin: 0 auto;
+        padding: 0 5px;
+    }
+
+    .profile-info .description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: justify;
+        margin: 0 auto;
+    }
+
+    /* Contact section - single column for very small screens */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 5px;
+        box-sizing: border-box;
+    }
+
+    .contact-item {
+        padding: 8px;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .contact-item h3 {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+    
+    .contact-item p {
+        font-size: 0.7rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Timeline items - centered and compact */
+    .timeline-item {
+        margin: 0 auto 30px auto;
+        padding: 12px;
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .timeline-label {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .timeline-item.major .timeline-label {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    /* Timeline boxes - centered and responsive */
+    .timeline-box,
+    .timeline-box-small {
+        margin: 0 auto 15px auto;
+        padding: 10px;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .timeline-box h4,
+    .timeline-box-small h4 {
+        font-size: 0.8rem;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .timeline-box p,
+    .timeline-box-small p {
+        font-size: 0.7rem;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.3;
+        margin-bottom: 6px;
+    }
+    
+    /* Fix individual certificate buttons in timeline boxes for small mobile screens */
+    .timeline-box .view-certificate-btn,
+    .timeline-box-small .view-certificate-btn {
+        display: block;
+        margin: 12px auto 0 auto;
+        text-align: center;
+    }
+
+    /* Right side sections - centered */
+    .career-section,
+    .education-section,
+    .foundation-section {
+        margin: 15px auto;
+        padding: 15px;
+        text-align: center;
+        max-width: 95%;
+    }
+
+    .career-section h3,
+    .education-section h3,
+    .foundation-section h3 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    .career-item,
+    .education-item,
+    .foundation-item {
+        margin: 0 auto 8px auto;
+        text-align: center;
+        padding: 12px;
+    }
+
+    /* Expanded containers - centered */
+    .expanded-container-2026 .expanded-content-wrapper,
+    .expanded-container-2024 .expanded-content-wrapper,
+    .expanded-container-2019 .expanded-content-wrapper {
+        margin: 15px auto;
+        padding: 15px;
+        max-width: 95%;
+        text-align: center;
+    }
+
+    .expanded-container-2026 .expanded-content-wrapper h2,
+    .expanded-container-2024 .expanded-content-wrapper h2,
+    .expanded-container-2019 .expanded-content-wrapper h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Project items - centered and responsive */
+    .project-item {
+        margin: 0 auto 10px auto;
+        padding: 8px;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .project-item-small {
+        margin: 0 auto 8px auto;
+        padding: 6px;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .project-item-small h6 {
+        font-size: 0.65rem;
+        text-align: center;
+        margin-bottom: 6px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.2;
+    }
+
+    .project-item-small .project-brief {
+        text-align: center;
+        margin-bottom: 6px;
+        font-size: 0.6rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.3;
+    }
+    
+    .project-item-small .project-title {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal !important;
+        max-width: 100%;
+    }
+
+    .project-item-small .project-links {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    /* Buttons - centered */
+    .timeline-buttons {
+        justify-content: center;
+        margin: 10px auto;
+    }
+
+    .view-certificate-btn {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    .view-certificate-btn.small {
+        font-size: 0.65rem;
+        padding: 5px 8px;
+    }
+
+    /* Skills grid - centered and responsive */
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        gap: 6px;
+        padding: 0 5px;
+        box-sizing: border-box;
+    }
+
+    .skill-category {
+        margin: 0 auto 8px auto;
+        text-align: center;
+        padding: 8px;
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .skill-category h5 {
+        font-size: 0.7rem;
+        margin-bottom: 4px;
+    }
+    
+    .skill-category p {
+        font-size: 0.6rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.3;
+    }
+
+    /* Certification items - centered */
+    .cert-items-grid {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 10px;
+    }
+
+    .cert-item {
+        margin: 0 auto 10px auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .cert-header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Typography - smaller for very small screens */
+    h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* Dark mode toggle - smaller */
+    .dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+    }
+
+    .dark-mode-label {
+        width: 40px;
+        height: 20px;
+    }
+
+    .dark-mode-switch {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
+    }
+
+    .dark-mode-checkbox:checked + .dark-mode-label .dark-mode-switch {
+        transform: translateX(20px);
+    }
+
+    .dark-mode-inner::before {
+        font-size: 12px;
+        right: 6px;
+        left: auto;
+        top: 2px;
+    }
+
+    .dark-mode-checkbox:checked + .dark-mode-label .dark-mode-inner::before {
+        right: auto;
+        left: 6px;
+    }
+    
+    /* Additional small screen fixes */
+    .project-links {
+        flex-wrap: wrap !important;
+        gap: 4px !important;
+        justify-content: center !important;
+    }
+    
+    .project-link {
+        font-size: 0.6rem !important;
+        padding: 4px 6px !important;
+        margin: 2px !important;
+        white-space: nowrap;
+    }
+    
+    /* Ensure buttons don't overflow */
+    .timeline-buttons {
+        flex-wrap: wrap !important;
+        gap: 4px !important;
+        justify-content: center !important;
+        max-width: 100%;
+    }
+    
+    .view-certificate-btn,
+    .view-certificate-btn.small {
+        font-size: 0.6rem !important;
+        padding: 4px 6px !important;
+        margin: 2px !important;
+        white-space: nowrap;
+        max-width: calc(50% - 4px);
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    
+    /* Force text to wrap in all containers */
+    h1, h2, h3, h4, h5, h6, p, span, div, a {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto;
+    }
+    
+    /* Override any fixed widths */
+    [style*="width"] {
+        max-width: 100% !important;
+        width: auto !important;
+    }
+    
+    /* Prevent horizontal scrolling */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Ultra small devices (very small phones, 280px and down) */
+@media (max-width: 320px) {
+    .container {
+        padding: 10px 5px;
+        min-width: 280px;
+        width: 100%;
+    }
+    
+    .timeline-item {
+        padding: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .timeline-box,
+    .timeline-box-small {
+        padding: 6px;
+    }
+    
+    .timeline-box h4,
+    .timeline-box-small h4 {
+        font-size: 0.7rem;
+        line-height: 1.1;
+    }
+    
+    .timeline-box p,
+    .timeline-box-small p {
+        font-size: 0.6rem;
+        line-height: 1.2;
+    }
+    
+    /* Fix individual certificate buttons in timeline boxes for ultra small screens */
+    .timeline-box .view-certificate-btn,
+    .timeline-box-small .view-certificate-btn {
+        display: block;
+        margin: 10px auto 0 auto;
+        text-align: center;
+        font-size: 0.55rem !important;
+        padding: 3px 5px !important;
+    }
+    
+    .project-item,
+    .project-item-small {
+        padding: 4px;
+        margin-bottom: 6px;
+    }
+    
+    .project-item-small h6 {
+        font-size: 0.6rem;
+        line-height: 1.1;
+    }
+    
+    .project-item-small .project-brief {
+        font-size: 0.55rem;
+        line-height: 1.2;
+    }
+    
+    .contact-item {
+        padding: 6px;
+    }
+    
+    .contact-item h3 {
+        font-size: 0.75rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.65rem;
+    }
+    
+    .skill-category {
+        padding: 6px;
+    }
+    
+    .skill-category h5 {
+        font-size: 0.65rem;
+    }
+    
+    .skill-category p {
+        font-size: 0.55rem;
+    }
+    
+    .view-certificate-btn,
+    .view-certificate-btn.small {
+        font-size: 0.55rem !important;
+        padding: 3px 5px !important;
+    }
+    
+    .project-link {
+        font-size: 0.55rem !important;
+        padding: 3px 5px !important;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    h2 {
+        font-size: 1rem;
+    }
+    
+    h3 {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-label {
+        font-size: 1rem;
+    }
+    
+    .timeline-item.major .timeline-label {
+        font-size: 1.2rem;
+    }
+}

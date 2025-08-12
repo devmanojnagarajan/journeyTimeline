@@ -88,15 +88,16 @@ body {
 .dark-mode-inner::before {
     content: '☀️';
     position: absolute;
-    left: 8px;
+    right: 8px;
     top: 4px;
     font-size: 16px;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .dark-mode-checkbox:checked + .dark-mode-label .dark-mode-inner::before {
     content: '🌙';
-    left: 4px;
+    right: auto;
+    left: 8px;
 }
 
 .container {

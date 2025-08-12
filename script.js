@@ -106,23 +106,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const certData = certificateData[certificateType];
             
             if (certData.url && certData.url !== '#') {
-                // Open portfolio in new window, certificates in modal
-                if (certificateType === 'job-2025') {
-                    window.open(certData.url, '_blank');
+                // Open all certificates and portfolio in modal
+                modalTitle.textContent = certData.title;
+                // Add PDF viewer parameters if not already present
+                const pdfUrl = certData.url.includes('#') ? certData.url : certData.url + '#toolbar=1&navpanes=1&scrollbar=1';
+                modalFrame.src = pdfUrl;
+                
+                // Add rotation class for masters certificate
+                if (certificateType === 'masters-arch') {
+                    modalFrame.classList.add('rotate-90');
                 } else {
-                    modalTitle.textContent = certData.title;
-                    modalFrame.src = certData.url;
-                    
-                    // Add rotation class for masters certificate
-                    if (certificateType === 'masters-arch') {
-                        modalFrame.classList.add('rotate-90');
-                    } else {
-                        modalFrame.classList.remove('rotate-90');
-                    }
-                    
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    modalFrame.classList.remove('rotate-90');
                 }
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
             } else {
                 // Show themed coming soon modal
                 comingSoonModal.style.display = 'block';
