@@ -53,6 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
             url: 'assets/certificates/Bachelors Degree.pdf',
             title: "Bachelor in Architecture"
         },
+        'bachelor-portfolio': {
+            url: 'https://issuu.com/manojmunch/docs/_01_ar__manoj_2k19',
+            title: "Bachelor Portfolio - Architectural Design Works"
+        },
         'work-2022': {
             url: 'assets/certificates/Manoj Nagarajan - QDC-1.pdf',
             title: "Work Experience Certificate - Qatar Design Consortium"
@@ -106,21 +110,27 @@ document.addEventListener('DOMContentLoaded', function() {
             const certData = certificateData[certificateType];
             
             if (certData.url && certData.url !== '#') {
-                // Open all certificates and portfolio in modal
-                modalTitle.textContent = certData.title;
-                // Add PDF viewer parameters if not already present
-                const pdfUrl = certData.url.includes('#') ? certData.url : certData.url + '#toolbar=1&navpanes=1&scrollbar=1';
-                modalFrame.src = pdfUrl;
-                
-                // Add rotation class for masters certificate
-                if (certificateType === 'masters-arch') {
-                    modalFrame.classList.add('rotate-90');
+                // Check if it's an external URL (Issuu, etc.)
+                if (certData.url.startsWith('http://') || certData.url.startsWith('https://')) {
+                    // Open external links in new tab
+                    window.open(certData.url, '_blank');
                 } else {
-                    modalFrame.classList.remove('rotate-90');
+                    // Open local files in modal
+                    modalTitle.textContent = certData.title;
+                    // Add PDF viewer parameters if not already present
+                    const pdfUrl = certData.url.includes('#') ? certData.url : certData.url + '#toolbar=1&navpanes=1&scrollbar=1';
+                    modalFrame.src = pdfUrl;
+                    
+                    // Add rotation class for masters certificate
+                    if (certificateType === 'masters-arch') {
+                        modalFrame.classList.add('rotate-90');
+                    } else {
+                        modalFrame.classList.remove('rotate-90');
+                    }
+                    
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
                 }
-                
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
             } else {
                 // Show themed coming soon modal
                 comingSoonModal.style.display = 'block';

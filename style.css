@@ -2738,3 +2738,76 @@ h3 {
         align-items: flex-start !important;
     }
 }
+
+/* Very large screens - prevent left side cropping */
+@media (min-width: 1900px) {
+    .container {
+        max-width: 1600px;
+        padding: 40px 60px;
+    }
+    
+    /* Ensure timeline doesn't go too far left */
+    .timeline-section {
+        left: calc(25% - 30px);
+        min-width: 200px;
+    }
+    
+    /* Adjust content area for better balance */
+    .content-area {
+        width: 55%;
+        margin-left: 35%;
+        padding-left: 40px;
+    }
+    
+    /* Prevent left-side elements from going off-screen */
+    .timeline-item[data-year="2023"] .certifications-section {
+        right: min(280px, 15%);
+    }
+    
+    .timeline-item[data-year="2022"] .work-experience-section {
+        right: min(350px, 20%);
+    }
+    
+    .expanded-container-2023 {
+        right: min(680px, 35%);
+    }
+    
+    .expanded-container-2022 {
+        right: min(800px, 40%);
+    }
+}
+
+/* Ultra wide screens - further adjustments */
+@media (min-width: 2400px) {
+    .container {
+        max-width: 1800px;
+        padding: 40px 100px;
+    }
+    
+    .timeline-section {
+        left: calc(30% - 50px);
+    }
+    
+    .content-area {
+        width: 50%;
+        margin-left: 40%;
+        padding-left: 60px;
+    }
+    
+    /* Further limit left positioning */
+    .timeline-item[data-year="2023"] .certifications-section {
+        right: min(280px, 10%);
+    }
+    
+    .timeline-item[data-year="2022"] .work-experience-section {
+        right: min(350px, 12%);
+    }
+    
+    .expanded-container-2023 {
+        right: min(680px, 25%);
+    }
+    
+    .expanded-container-2022 {
+        right: min(800px, 30%);
+    }
+}
