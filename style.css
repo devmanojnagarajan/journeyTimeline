@@ -194,7 +194,7 @@ body {
 .timeline-section {
     position: absolute;
     top: 200px;
-    left: calc(35% - 50px);
+    left: calc(50% - 50px);
     transform: translateX(-50%);
     height: 4000px;
     
@@ -1703,7 +1703,7 @@ body {
 /* Content Area */
 .content-area {
     width: 60%;
-    margin-left: 35%;
+    margin-left: 50%;
     padding-left: 60px;
 }
 
@@ -1880,8 +1880,30 @@ h3 {
     font-size: 0.85rem;
 }
 
-/* Responsive design */
+/* Responsive design for tablets */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .timeline-section {
+        left: calc(50% - 50px);
+    }
+    
+    .content-area {
+        width: 70%;
+        margin-left: 50%;
+        padding-left: 40px;
+    }
+}
+
+/* Responsive design for mobile */
 @media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
     .profile-section {
         flex-direction: column;
         gap: 20px;
@@ -1901,6 +1923,7 @@ h3 {
     .timeline-section {
         order: 2;
         padding: 20px 0;
+        left: calc(50% - 50px);
     }    
    
     
@@ -1911,6 +1934,9 @@ h3 {
     .content-area {
         order: 1;
         padding-right: 0;
+        padding-left: 20px;
+        margin-left: 0;
+        width: 100%;
         margin-bottom: 30px;
     }
     
