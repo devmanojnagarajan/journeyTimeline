@@ -1,0 +1,155 @@
+/* Small Screen Specific Styles - Optimized for Mobile and Tablet */
+
+/* Mobile and Tablet Responsive Spacing - Keep current working spacing */
+@media (max-width: 1024px) {
+    /* Reset timeline spacing for mobile - all get standard spacing */
+    .timeline-item[data-year="2026"],
+    .timeline-item[data-year="2025"],
+    .timeline-item[data-year="2024"],
+    .timeline-item[data-year="2023"],
+    .timeline-item[data-year="2022"] {
+        margin-bottom: 40px !important; /* Override the large desktop spacing */
+    }
+    
+    .certifications-section,
+    .work-experience-section {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 20px;
+        right: auto !important;
+        top: auto !important;
+    }
+    
+    .expanded-certs {
+        width: 100% !important;
+        right: auto !important;
+        position: static !important;
+        margin-top: 15px;
+    }
+    
+    .timeline-item[data-year="2020"] .expanded-certs {
+        width: 100% !important;
+        right: auto !important;
+        position: static !important;
+        margin-top: 15px;
+    }
+    
+    .expanded-jd {
+        width: 100% !important;
+        right: auto !important;
+        position: static !important;
+        margin-top: 15px;
+    }
+    
+    /* Reset specific positioning for mobile */
+    .timeline-item[data-year="2023"] .certifications-section,
+    .timeline-item[data-year="2022"] .work-experience-section {
+        top: auto !important;
+    }
+    
+    .timeline-connection-2023,
+    .timeline-connection-2022 {
+        display: none !important;
+    }
+    
+    .expanded-container-2023,
+    .expanded-container-2022 {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 20px;
+        right: auto !important;
+        top: auto !important;
+        max-height: none !important;
+    }
+    
+    /* Reset expanded container positioning for mobile */
+    .timeline-item[data-year="2023"] .expanded-container-2023,
+    .timeline-item[data-year="2022"] .expanded-container-2022 {
+        top: auto !important;
+    }
+}
+
+/* Medium screens: Reduced spacing for 3-box years (2026, 2024, 2019) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .timeline-item[data-year="2026"] { margin-bottom: 120px !important; }
+    .timeline-item[data-year="2025"] { margin-bottom: 100px !important; }
+    .timeline-item[data-year="2024"] { margin-bottom: 140px !important; }
+    .timeline-item[data-year="2023"] { margin-bottom: 80px !important; }
+    .timeline-item[data-year="2022"] { margin-bottom: 80px !important; }
+    .timeline-item[data-year="2021"] { margin-bottom: 50px !important; }
+    .timeline-item[data-year="2020"] { margin-bottom: 70px !important; }
+    .timeline-item[data-year="2019"] { margin-bottom: 140px !important; }
+    .timeline-item[data-year="2018"] { margin-bottom: 90px !important; }
+    .timeline-item[data-year="2017"] { margin-bottom: 90px !important; }
+    
+    /* Timeline height for medium screens */
+    .timeline-section { height: 2400px !important; }
+    .timeline-line { height: 2400px !important; }
+}
+
+/* Mobile screens: Much more reduced spacing for single column */
+@media (max-width: 768px) {
+    .timeline-item[data-year="2026"] { margin-bottom: 60px !important; }
+    .timeline-item[data-year="2025"] { margin-bottom: 60px !important; }
+    .timeline-item[data-year="2024"] { margin-bottom: 70px !important; }
+    .timeline-item[data-year="2023"] { margin-bottom: 50px !important; }
+    .timeline-item[data-year="2022"] { margin-bottom: 50px !important; }
+    .timeline-item[data-year="2021"] { margin-bottom: 30px !important; }
+    .timeline-item[data-year="2020"] { margin-bottom: 50px !important; }
+    .timeline-item[data-year="2019"] { margin-bottom: 70px !important; }
+    .timeline-item[data-year="2018"] { margin-bottom: 60px !important; }
+    .timeline-item[data-year="2017"] { margin-bottom: 60px !important; }
+    
+    /* Timeline height for mobile screens */
+    .timeline-section { height: 1800px !important; }
+    .timeline-line { height: 1800px !important; }
+}
+
+/* Responsive expanded containers for smaller screens */
+@media (max-width: 1200px) {
+    .expanded-container-2026,
+    .expanded-container-2024,
+    .expanded-container-2019 {
+        position: static;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+    
+    .expanded-container-2026 .expanded-content-wrapper,
+    .expanded-container-2024 .expanded-content-wrapper,
+    .expanded-container-2019 .expanded-content-wrapper {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .expanded-container-2026,
+    .expanded-container-2024, 
+    .expanded-container-2019,
+    .expanded-container-2023,
+    .expanded-container-2022 {
+        position: static;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        margin: 15px 0;
+    }
+    
+    .expanded-container-2026 .expanded-content-wrapper,
+    .expanded-container-2024 .expanded-content-wrapper,
+    .expanded-container-2019 .expanded-content-wrapper {
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
