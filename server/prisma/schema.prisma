@@ -1,0 +1,127 @@
+// Prisma schema for the portfolio's Education / Certification / Work / Project / Skill data.
+// Kept as plain, flat relational tables (few FKs) on purpose so it maps 1:1 onto simple
+// Spring Data JPA @Entity classes when the backend moves to Spring Boot later.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EducationLevel {
+  BACHELOR
+  MASTER
+}
+
+// Degree-level entries on the timeline (Bachelor's, Master's).
+// Standalone certifications live in the separate Certification model.
+model Education {
+  id             Int                  @id @default(autoincrement())
+  year           Int // timeline anchor year, e.g. 2026 (matches data-year in the current HTML)
+  level          EducationLevel
+  degreeTitle    String
+  institution    String
+  location       String?
+  startYear      Int
+  endYear        Int
+  yearRangeLabel String // display label, e.g. "2024 - 2026"
+  description    String?
+  certificateUrl String?
+  portfolioUrl   String?
+  sortOrder      Int                  @default(0)
+  highlights     EducationHighlight[]
+
+  @@map("education")
+}
+
+// The 3 bullet items shown next to a major education entry
+// (e.g. "Current Focus" / "Advanced Studies" / "Foundation & Growth").
+model EducationHighlight {
+  id          Int       @id @default(autoincrement())
+  educationId Int
+  education   Education @relation(fields: [educationId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  sortOrder   Int       @default(0)
+
+  @@map("education_highlights")
+}
+
+// Standalone professional/industry certifications (BIM Automation, AutoCAD Professional, etc.)
+model Certification {
+  id             Int     @id @default(autoincrement())
+  year           Int
+  title          String
+  description    String?
+  issuer         String?
+  certificateUrl String?
+  sortOrder      Int     @default(0)
+
+  @@map("certifications")
+}
+
+// Jobs and internships.
+model Work {
+  id               Int                  @id @default(autoincrement())
+  year             Int
+  isInternship     Boolean              @default(false)
+  position         String
+  company          String
+  location         String?
+  durationLabel    String // e.g. "2020 - 2022 (3 Years)" or "Summer 2018 (4 months)"
+  description      String?
+  certificateUrl   String?
+  jdUrl            String?
+  portfolioUrl     String?
+  imageUrl         String?
+  skillsDeveloped  String?
+  sortOrder        Int                  @default(0)
+  responsibilities WorkResponsibility[]
+
+  @@map("work")
+}
+
+model WorkResponsibility {
+  id        Int    @id @default(autoincrement())
+  workId    Int
+  work      Work   @relation(fields: [workId], references: [id], onDelete: Cascade)
+  text      String
+  sortOrder Int    @default(0)
+
+  @@map("work_responsibilities")
+}
+
+// Individual project cards. `groupTitle` ties several projects to the same
+// expanded panel (e.g. all 3 projects under "MAA Design Portfolio" in 2024).
+model Project {
+  id          Int     @id @default(autoincrement())
+  year        Int
+  groupTitle  String
+  title       String
+  description String?
+  icon        String? @default("🌐")
+  status      String?
+  link1Label  String?
+  link1Url    String?
+  link2Label  String?
+  link2Url    String?
+  sortOrder   Int     @default(0)
+
+  @@map("projects")
+}
+
+// Skill category chips shown alongside a project group
+// (e.g. "Frontend: React, Vue, Angular" under the 2026 group).
+model Skill {
+  id         Int    @id @default(autoincrement())
+  year       Int
+  groupTitle String
+  category   String
+  items      String
+  sortOrder  Int    @default(0)
+
+  @@map("skills")
+}

@@ -3054,3 +3054,84 @@ Box 3 (Right - LARGEST): Expanded Container ~450px (3 projects + 4 skills + padd
 }
 
 /* Note: Small screen spacing is now handled in small-screen.css */
+
+/* ==========================================================================
+   Responsive width fix for the desktop timeline (1025px–1999px viewports)
+
+   The boxes below are absolutely positioned against the 200px-wide
+   `.timeline-section` column using fixed pixel widths and right/left
+   percentages. Those percentages resolve against the 200px column, not the
+   viewport, so on ordinary laptop screens (1280–1920px) the fixed widths
+   (280–950px) don't actually fit in the space available and get clipped
+   off the left or right edge of the page. `.timeline-section`'s own
+   position is a piecewise-linear function of viewport width (it jumps at
+   the existing 1400px/1600px/2000px breakpoints), so the safe max-width
+   below is expressed as the matching vw-based formula per bracket, with a
+   16px safety margin. Unifies the left-anchored boxes to a single 70%
+   inset (was 66–80% depending on year) so they share one formula.
+   ========================================================================== */
+.expanded-certs,
+.expanded-jd,
+.timeline-item[data-year="2020"] .expanded-certs {
+    right: 70% !important;
+}
+
+@media (min-width: 1025px) and (max-width: 1399px) {
+    .timeline-box { width: min(280px, calc(25vw - 98.5px)) !important; max-width: min(280px, calc(25vw - 98.5px)) !important; }
+    .timeline-item[data-year="2026"] .timeline-box { width: min(400px, calc(25vw - 98.5px)) !important; max-width: min(400px, calc(25vw - 98.5px)) !important; }
+    .timeline-box-small { width: min(250px, calc(25vw - 98.5px)) !important; max-width: min(250px, calc(25vw - 98.5px)) !important; }
+    .expanded-certs { width: min(600px, calc(25vw - 98.5px)) !important; }
+    .timeline-item[data-year="2020"] .expanded-certs { width: min(440px, calc(25vw - 98.5px)) !important; }
+    .expanded-jd { width: min(460px, calc(25vw - 98.5px)) !important; }
+
+    .expanded-container-2026, .expanded-container-2024, .expanded-container-2019 {
+        width: min(600px, calc(75vw - 523.5px)) !important;
+    }
+    .timeline-item[data-year="2025"] .timeline-box-small {
+        width: min(750px, calc(75vw - 133.5px)) !important;
+        max-width: min(750px, calc(75vw - 133.5px)) !important;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1600px) {
+    .timeline-box { width: min(280px, calc(25vw - 56px)) !important; max-width: min(280px, calc(25vw - 56px)) !important; }
+    .timeline-item[data-year="2026"] .timeline-box { width: min(400px, calc(25vw - 56px)) !important; max-width: min(400px, calc(25vw - 56px)) !important; }
+    .timeline-box-small { width: min(250px, calc(25vw - 56px)) !important; max-width: min(250px, calc(25vw - 56px)) !important; }
+    .expanded-certs { width: min(600px, calc(25vw - 56px)) !important; }
+    .timeline-item[data-year="2020"] .expanded-certs { width: min(440px, calc(25vw - 56px)) !important; }
+    .expanded-jd { width: min(460px, calc(25vw - 56px)) !important; }
+
+    .expanded-container-2026, .expanded-container-2024, .expanded-container-2019 {
+        width: min(600px, calc(75vw - 566px)) !important;
+    }
+    .timeline-item[data-year="2025"] .timeline-box-small {
+        width: min(750px, calc(75vw - 176px)) !important;
+        max-width: min(750px, calc(75vw - 176px)) !important;
+    }
+}
+
+@media (min-width: 1601px) and (max-width: 1999px) {
+    .timeline-box { width: min(280px, calc(50vw - 456px)) !important; max-width: min(280px, calc(50vw - 456px)) !important; }
+    .timeline-item[data-year="2026"] .timeline-box { width: min(400px, calc(50vw - 456px)) !important; max-width: min(400px, calc(50vw - 456px)) !important; }
+    .timeline-box-small { width: min(250px, calc(50vw - 456px)) !important; max-width: min(250px, calc(50vw - 456px)) !important; }
+    .expanded-certs { width: min(600px, calc(50vw - 456px)) !important; }
+    .timeline-item[data-year="2020"] .expanded-certs { width: min(440px, calc(50vw - 456px)) !important; }
+    .expanded-jd { width: min(460px, calc(50vw - 456px)) !important; }
+
+    .expanded-container-2026, .expanded-container-2024, .expanded-container-2019 {
+        width: min(600px, calc(50vw - 166px)) !important;
+    }
+}
+
+@media (min-width: 2000px) {
+    .timeline-box { width: min(280px, calc(50vw - 426px)) !important; max-width: min(280px, calc(50vw - 426px)) !important; }
+    .timeline-item[data-year="2026"] .timeline-box { width: min(400px, calc(50vw - 426px)) !important; max-width: min(400px, calc(50vw - 426px)) !important; }
+    .timeline-box-small { width: min(250px, calc(50vw - 426px)) !important; max-width: min(250px, calc(50vw - 426px)) !important; }
+    .expanded-certs { width: min(600px, calc(50vw - 426px)) !important; }
+    .timeline-item[data-year="2020"] .expanded-certs { width: min(440px, calc(50vw - 426px)) !important; }
+    .expanded-jd { width: min(460px, calc(50vw - 426px)) !important; }
+
+    .expanded-container-2026, .expanded-container-2024, .expanded-container-2019 {
+        width: min(600px, calc(50vw - 196px)) !important;
+    }
+}
